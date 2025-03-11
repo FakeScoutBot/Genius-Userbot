@@ -12,4 +12,5 @@ RUN pip3 install aiohttp gunicorn
 EXPOSE 8080
 
 # Use the run command from run_cmd.txt
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8080", "--worker-class", "aiohttp.GunicornWebWorker"]
+CMD ["sh", "-c", "gunicorn app:app --bind 0.0.0.0:8080 --worker-class aiohttp.GunicornWebWorker & python3 -m AdityaHalder"]
+
