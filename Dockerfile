@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM python:3.9
 RUN apt-get update -y && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends git ffmpeg python3-pip \
     && apt-get clean \
