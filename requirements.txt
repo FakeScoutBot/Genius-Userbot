@@ -6,7 +6,5 @@ py-tgcalls==1.2.9
 tgcrypto==1.2.5
 youtube-search-python
 yt-dlp==2023.12.30
-Flask==1.1.2
+aiohttp==3.8.4
 gunicorn==20.1.0
-Jinja2==3.0.3
-werkzeug==2.0.2
