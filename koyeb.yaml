@@ -1,0 +1,51 @@
+name: genius-userbot
+services:
+  - name: worker
+    instance_type: small
+    envs:
+      - key: API_ID
+        value: ""
+        type: secret
+      - key: API_HASH
+        value: ""
+        type: secret
+      - key: BOT_TOKEN
+        value: ""
+        type: secret
+      - key: STRING_SESSION
+        value: ""
+        type: secret
+      - key: MONGO_DB_URL
+        value: ""
+        type: secret
+      - key: LOG_GROUP_ID
+        value: ""
+        type: secret
+      - key: COMMAND_PREFIXES
+        value: ". !"
+      - key: PM_GUARD
+        value: "True"
+      - key: PM_GUARD_TEXT
+        value: "**🥀 Hey, I am an advanced & superfast high quality userbot assistant with an upgraded version security system.\n\n🌿 I can't let you message my owner's dm without my owner's permission.\n\n🌺 My owner is offline now, please wait until my owner allows you.\n\n🍂 Please don't spam here, because spamming will force me to block you from my owner id.**"
+      - key: PM_GUARD_LIMIT
+        value: "5"
+      - key: USERBOT_PICTURE
+        value: "https://graph.org/file/1217cb1e402b99fa47fdf.jpg"
+      - key: PORT
+        value: "8080"
+    ports:
+      - port: 8080
+        protocol: http
+    docker:
+      dockerfile: Dockerfile
+    scaling:
+      min: 1
+      max: 1
+    health_check:
+      port: 8080
+      path: /health
+      initial_delay: 30s
+      interval: 15s
+      timeout: 10s
+      success_threshold: 1
+      failure_threshold: 3
